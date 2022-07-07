@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>注册</h2>
+<form action="{{ url_for('register') }}" method=post >
+    <dl>
+        <dt>Username:
+        <dd><input type=text name=username required="true">
+        <dt>Password:
+        <dd><input type=password name=password id="pwd1" required="true">
+        <dd><input type=password name=password2 id="pwd2" required="true" onkeyup="validate()"/> <span id="tishi"></span>
+        <dd><input type=submit value=注册 id="zhuce"> <input type="reset" value="重新输入">
+    </dl>
+</form>
+ 
+<script type="text/javascript">
+    function validate() {
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+        if(pwd1 == pwd2){
+            document.getElementById("zhuce").disabled=false
+            document.getElementById("tishi").innerHTML="<font color='green'>两次密码相同</font>";
+            }
+        else {
+            document.getElementById("zhuce").disabled=true
+            document.getElementById("tishi").innerHTML="<font color='red'>两次密码不相同</font>";
+        }
+     }
+
+</script>
+
+{% endblock %}

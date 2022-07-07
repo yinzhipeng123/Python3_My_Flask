@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
+  <form action="{{ url_for('synconfig') }}" method=post>
+    <dl>
+      <dt>连接数:
+      <dd><input type=text name=connectnum required="true">
+      <dt>内存大小:
+      <dd><input type=text name=mem required="true">
+      <dd><input type=submit value=提交>
+    </dl>
+  </form>
+{% endblock %}
